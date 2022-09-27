@@ -207,6 +207,9 @@ echo "Los primeros numeros pares son ";
          $media=$media+$arrayNumerosNaturales[$i];
             }
     }
+
+    
+
 echo"<br>";
 echo "La media de los primero numeros impares es ".$media/$contador;
 
@@ -220,17 +223,20 @@ echo"<br>";
 echo"<strong>Ejercicio 11</strong>";
 echo"<br>";
 
-for($i=0; $i<7; $i++){
-    echo rand(0,9)." ";
-    for($j=0; $j<6; $j++){
-        if($i==($j)){
-            echo "* ";
-        }else{
-            echo rand(0,9)." ";
+
+$array=[];
+
+for($z=0; $z<7; $z++){
+    for($k=0; $k<7;$k++){
+        echo $array[$z][$k]=rand(0,9)."   ";
+        if($z==$k){
+            echo $array[$z][$k]="1   ";
         }
     }
-    echo"<br>";
+    echo "<br>";
 }
+
+
 
 // 12. Haz un diccionario de palabras español a inglés (20 palabras mínimo) con un array
 // asociativo. Haz un programa que dada una palabra compruebe si está en el
@@ -256,9 +262,6 @@ $diccionario = [
     "diez"=> "ten"
     ];
     
-    echo $diccionario["uno"];
-    echo"<br>";
-
     $palabra="uno";
     if(in_array($palabra,$diccionario)){
         echo $diccionario[$palabra];
@@ -281,7 +284,7 @@ echo"<br>";
 
 $arrayFifo=[];
 
-function añadir($array,$entrada){
+function anadir($array,$entrada){
     array_push($array,$entrada);
 }
 function eliminar($array,$salida){
@@ -289,21 +292,16 @@ function eliminar($array,$salida){
 }
 
 function mostrarArray($array){
-    for($i=0; $i<count($array); $i++){
-        echo $array[$i]. " ";
+    for($r=0; $r<count($array); $r++){
+        echo $array[$r]. " ";
     }
 }
 
-añadir($arrayFifo,2);
+anadir($arrayFifo,2);
 array_push($arrayFifo,1);
 array_push($arrayFifo,1);
 array_push($arrayFifo,1);
 mostrarArray($arrayFifo);
-
-
-
-
-
 
 
 // 14. Crea un array de notas de alumnos. Cada elemento del array debe contener las
@@ -311,9 +309,6 @@ mostrarArray($arrayFifo);
 // notas de alumnos. Luego debes mostrar las notas ordenadas en orden
 // descendente por alumno, luego ordenadas por nombre, luego mostrar la nota
 // media del curso, y el número de alumnos suspensos.
-
-
-
 
 
 
