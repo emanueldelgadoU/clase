@@ -177,9 +177,24 @@ echo "El numero de la loteria generado aleatorio sin nuneros repetidos es ===>  
 // Puedes usar la función SVG circle para dibujar los círculos.
 
 
+echo"<br>";
+echo"<br>";
+echo"<br>";
+echo"<strong>Ejercicio 9</strong>";
+echo"<br>";
+echo"<br>";
+
+for($i=0; $i<10; $i++){
+
+    $color = 'rgb('.rand(1,255).','.rand(1,255).','.rand(1,255).')';
+   echo'<svg height="100" width="100">
+   <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="'.$color.'" />
+    </svg>';
+}
 
 
-
+echo"<br>";
+echo"<br>";
 
 
 
@@ -226,15 +241,17 @@ echo"<br>";
 
 $array=[];
 
-for($z=0; $z<7; $z++){
-    for($k=0; $k<7;$k++){
-        echo $array[$z][$k]=rand(0,9)."   ";
-        if($z==$k){
-            echo $array[$z][$k]="1   ";
+for($i=1; $i<4; $i++){
+    for($j=1; $j<4;$j++){
+        echo $array[$i][$j]=rand(0,9)."   ";
+        if($i==$j){
+            echo $array[$i][$j]="1   ";
         }
     }
     echo "<br>";
 }
+
+
 
 
 
@@ -243,6 +260,8 @@ for($z=0; $z<7; $z++){
 // diccionario y si es así que muestre la traducción, y si no está que indique que no
 // está en el diccionario. A continuación, muestra el diccionario ordenador en
 // español
+
+//arraykeyexist
 
 echo"<br>";
 echo"<br>";
@@ -284,7 +303,7 @@ echo"<br>";
 
 $arrayFifo=[];
 
-function anadir($array,$entrada){
+function anadir(&$array,$entrada){
     array_push($array,$entrada);
 }
 function eliminar($array,$salida){
@@ -310,6 +329,26 @@ mostrarArray($arrayFifo);
 // descendente por alumno, luego ordenadas por nombre, luego mostrar la nota
 // media del curso, y el número de alumnos suspensos.
 
+echo"<strong>Ejercicio 14</strong>";
+
+$notas=array(
+	array("nombre"=>"DIEGO","materia"=>"SERVIDOR","nota"=>10),
+	array("nombre"=>"EMILIO","materia"=>"SERVIDOR","nota"=>9),
+	array("nombre"=>"LATI","materia"=>"SERVIDOR","nota"=>9),
+	array("nombre"=>"PILAR","materia"=>"SERVIDOR","nota"=>9),
+	array("nombre"=>"PILAR","materia"=>"SERVIDOR","nota"=>8),
+	array("nombre"=>"GUILLERMO","materia"=>"SERVIDOR","nota"=>7),
+	array("nombre"=>"ALEX","materia"=>"SERVIDOR","nota"=>9),
+	array("nombre"=>"RUBEN","materia"=>"SERVIDOR","nota"=>9),
+	array("nombre"=>"EMI","materia"=>"SERVIDOR","nota"=>8),
+	array("nombre"=>"DESCONOCIDO","materia"=>"SERVIDOR","nota"=>3)
+    );
+
+    array_multisort(array_column($notas,"nombre"), SORT_DESC, array_column($notas,"notas"));
+
+    foreach($notas as $valor){
+        echo $valor["nombre"]." - ".$valor["materia"]." - ".$valor["nota"]."<br>";
+    }
 
 
 ?>

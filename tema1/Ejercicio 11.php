@@ -1,4 +1,9 @@
+
 <?php
+
+// 11. Crea un array 7x7 con valores numéricos aleatorios excepto las diagonales que
+// deben ser 1. A continuación muestra el array y después genera un vector que
+// contenga la suma de cada fila y otro con la suma de cada columna.
 
 
 $numeros = [];
@@ -45,5 +50,4 @@ for($i=0; $i<7; $i++) {
 }
 
 
-//raiz cuadrada es 0 o negativo controlar el error
 ?>
