@@ -1,11 +1,6 @@
 
 <?php
 
-// 1. Partiendo de 2 variables $primera y $segunda con valores aleatorios, hacer una
-// página PHP que calcule y muestre por pantalla:
-// - la diferencia de $primera menos $segunda
-// - la división de $primera entre $segunda
-// Añade un comentario que explique la función de generar números aleatorios.
 echo"<strong>Ejercicio 1</strong>";
 echo "<br>";
 echo"La funcion que genera numeros aleatorios es rand()";

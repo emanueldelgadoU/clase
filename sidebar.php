@@ -27,8 +27,6 @@
 						<li><a href="/tema1/Ejercicio 12.php" class="link-dark rounded">Ejercicio 12</a></li>
 						<li><a href="/tema1/Ejercicio 13.php" class="link-dark rounded">Ejercicio 13</a></li>
 						<li><a href="/tema1/Ejercicio 14.php" class="link-dark rounded">Ejercicio 14</a></li>
-				
-				
 					</ul>
 					</div>
 				</li>
@@ -38,7 +36,36 @@
 					</button>
 					<div class="collapse" id="tema2">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="/tema2/eje1.php" class="link-dark rounded">Ejercicio 1</a></li>
+							
+						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
+						Practica1
+						</button></li>
+						<li><a href="/tema2/Practica1/Ejercicio 1.php" class="link-dark rounded">Ejercicio 1</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 2.php" class="link-dark rounded">Ejercicio 2</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 3php" class="link-dark rounded">Ejercicio 3</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 4.php" class="link-dark rounded">Ejercicio 4</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 5.php" class="link-dark rounded">Ejercicio 5</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 6.php" class="link-dark rounded">Ejercicio 6</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 7.php" class="link-dark rounded">Ejercicio 7</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 8.php" class="link-dark rounded">Ejercicio 8</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 9.php" class="link-dark rounded">Ejercicio 9</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 10.php" class="link-dark rounded">Ejercicio 10</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 11.php" class="link-dark rounded">Ejercicio 11</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 12.php" class="link-dark rounded">Ejercicio 12</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 13.php" class="link-dark rounded">Ejercicio 13</a></li>
+						<li><a href="/tema2/Practica1/Ejercicio 14.php" class="link-dark rounded">Ejercicio 14</a></li>
+						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
+						Practica2
+						</button></li>
+							<li><a href="/tema2/Practica2/Ejercicio 1.php" class="link-dark rounded">Ejercicio 1</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 2.php" class="link-dark rounded">Ejercicio 2</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 3.php" class="link-dark rounded">Ejercicio 3</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 4.php" class="link-dark rounded">Ejercicio 4</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 5.php" class="link-dark rounded">Ejercicio 5</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 6.php" class="link-dark rounded">Ejercicio 6</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 7.php" class="link-dark rounded">Ejercicio 7</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 8.php" class="link-dark rounded">Ejercicio 8</a></li>
+							<li><a href="/tema2/Practica2/Ejercicio 9.php" class="link-dark rounded">Ejercicio 9</a></li>
 					</ul>
 					</div>
 				</li>
@@ -49,7 +76,10 @@
 					</button>
 					<div class="collapse" id="tema3">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">Ejercicio 1</a></li>
+						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema3" aria-expanded="false">
+					Practica1
+					</button></li>
+					<li><a href="/tema3/practica1/Ejercicio1.php" class="link-dark rounded">Ejercicio 1</a></li>
 					</ul>
 					</div>
 				</li>

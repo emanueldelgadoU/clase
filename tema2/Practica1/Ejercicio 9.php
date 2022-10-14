@@ -5,6 +5,10 @@
 // diferente aleatorio.
 // Puedes usar la función SVG circle para dibujar los círculos.
 
+
+echo"<br>";
+echo"<br>";
+echo"<br>";
 echo"<strong>Ejercicio 9</strong>";
 echo"<br>";
 echo"<br>";

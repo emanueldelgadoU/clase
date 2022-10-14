@@ -4,6 +4,9 @@
 // 8. Crea un generador aleatorio de apuesta de la Lotería Primitiva. Cada vez que
 // recargues la página aparecerá una combinación diferente.
 
+
+echo"<br>";
+echo"<br>";
 echo"<strong>Ejercicio 8</strong>";
 echo"<br>";
 $arrayLoteria=[];

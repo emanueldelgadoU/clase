@@ -4,6 +4,9 @@
 // 10. Rellena un array de 10 números enteros, con los 10 primeros números naturales.
 // Calcula la media de los que están en posiciones pares y muestra los impares por
 // pantalla.
+
+echo"<br>";
+echo"<br>";
 echo"<strong>Ejercicio 10</strong>";
 echo"<br>";
 
