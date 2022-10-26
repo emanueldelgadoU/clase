@@ -15,7 +15,4 @@ $notas=array(
 	array("nombre"=>"EMI","materia"=>"SERVIDOR","nota"=>8),
 	array("nombre"=>"DESCONOCIDO","materia"=>"SERVIDOR","nota"=>3)
 	)
-
-
-
 ?>

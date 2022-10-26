@@ -34,11 +34,10 @@ anadir($arrayFifo,1);
 anadir($arrayFifo,1);
 mostrarArray($arrayFifo);
 echo "<br>";
+echo "<br>";
 eliminar($arrayFifo,3);
 mostrarArray($arrayFifo);
 echo "<br>";
 mostrarArray($arrayFifo);
-
-
 
 ?>

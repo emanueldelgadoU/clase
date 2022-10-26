@@ -70,6 +70,37 @@ foreach($pruebecilla as $clave => $valor){
     echo $clave;
 }
 
+$prueba = array(
+    array(
+        "id" => "1", "nombre" => "proyecto1"),
+    array(
+        "id" => "2", "nombre" => "proyecto2"),
+    array(
+        "id" => "3", "nombre" => "proyecto3"),
+    array(
+        "id" => "4", "nombre" => "proyecto4"),
+);
+    
+    echo "-----------------------------------------------";
+    $numID=2;
+
+    foreach($prueba as $valor){
+            if($valor['id']==$numID){
+                unset($prueba[$numID]);
+            }
+    }
+    
+
+    echo "-----------------------------------------------";
+    echo "-----------------------------------------------";
+    echo "-----------------------------------------------";
+
+    foreach($prueba as $clave){
+            echo $clave['nombre'];
+            echo "<br>";
+        
+    }
+
 ?>
 
 </body>
