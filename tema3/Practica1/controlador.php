@@ -91,22 +91,32 @@ if ($_GET['accion'] == "borrartodo") {
         }
     }
 
-        // //BORRAMOS PROYECTOS POR ID
-        // if ($_GET['accion'] == "borrarid") {
-        //     foreach($_SESSION['proyectitos'] as &$value){
-        //         if($value['id']==$_GET['id']){
-        //             //unset($value);
-        //             unset($_SESSION['proyectitos'][$value['id']]);
-        //             echo '<script>window.location="'."proyectos.php".'"</script>';
-        //         }
-        //     }
-        // }
+    // //BORRAMOS PROYECTOS POR ID
+    // if ($_GET['accion'] == "borrarid") {
+    //     foreach($_SESSION['proyectitos'] as &$value){
+    //         if($value['id']==$_GET['id']){
+    //             //unset($value);
+    //             unset($_SESSION['proyectitos'][$value['id']]);
+    //             echo '<script>window.location="'."proyectos.php".'"</script>';
+    //         }
+    //     }
+    // }
 
     //VER PROYECTO POR ID
-    ver();
-
-    if($_GET['accion']=="destroy"){
-        session_destroy();
-        echo '<script>window.location="'."login.php".'"</script>';
+    if ($_GET['accion'] == "informacion") {
+        foreach($_SESSION['proyectitos'] as &$value ){
+            if($value['id']==$_GET['id']){
+                $_SESSION['id']=$_GET['id'];
+          echo '<script>window.location="'."verProyecto.php?iDD=".$_SESSION['id'].'"</script>';
+       
+        }
     }
+}
+
+    if($_GET['destruir']=="destroy"){
+        echo '<script>window.location="'."login.php".'"</script>';
+        session_destroy();
+}
+
+
 ?>

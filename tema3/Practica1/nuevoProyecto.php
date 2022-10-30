@@ -20,11 +20,11 @@
                                               id="nombre" aria-describedby="" placeholder="Nombre del proyecto" />
                                       </div>
                                       <div class="form-group">
-                                          <input type="text" class="form-control form-control-user" name="fechaini"
+                                          <input type="date" class="form-control form-control-user" name="fechaini"
                                               id="fechaini" aria-describedby="" placeholder="Fecha de inicio" />
                                       </div>
                                       <div class="form-group">
-                                          <input type="text" class="form-control form-control-user" name="fechafin"
+                                          <input type="date" class="form-control form-control-user" name="fechafin"
                                               id="fechafin" aria-describedby="" placeholder="Fecha de finalizacion" />
                                       </div>
                                       <div class="form-group">
@@ -38,7 +38,7 @@
                                               placeholder="Porcentaje completado" />
                                       </div>
                                       <div class="form-group">
-                                          <input type="text" class="form-control form-control-user" id="importancia"
+                                          <input type="number" min="1" max="5" class="form-control form-control-user" id="importancia"
                                               name="importancia" placeholder="Importancia" />
                                       </div>
                                       <div class="form-group">
