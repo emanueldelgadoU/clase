@@ -37,12 +37,12 @@
                     <div class="form-group">
                       <!-- mensaje -->
                       <!-- mensaje -->
-                    <?php if(isset($_GET['fallo'])){
-                      echo '<p class="text-danger">'.$_GET['fallo'].'</p>';
-                    }
-                    ?>
-                    <!-- mensaje -->
-                    <!-- mensaje -->
+                          <?php if(isset($_GET['fallo'])){
+                            echo '<p class="text-danger">'.$_GET['fallo'].'</p>';
+                          }
+                          ?>
+                      <!-- mensaje -->
+                      <!-- mensaje -->
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email"
                         aria-describedby="emailHelp" placeholder="Email" />
                     </div>

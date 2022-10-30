@@ -7,7 +7,7 @@ header("Content-Type: text/html; charset=UTF-8");
 <?php
 
 $mayusculas=false;
-$mensaje="contraseña mal";
+$mensaje="La contraseña debe tener al menos una mayuscula y mas de 8 caracteres";
 
 //ISSET ES SI HAY ALGO DENTRO DEL POST
 
@@ -80,25 +80,33 @@ if ($_GET['accion'] == "borrartodo") {
 
     //BORRAMOS PROYECTOS POR ID
     if ($_GET['accion'] == "borrarid") {
-        foreach($_SESSION['proyectitos'] as &$value){
-            if($value['id']==$_GET['id']){
-                //unset($value);
-                unset($_SESSION['proyectitos'][$value['id']]);
-                echo '<script>window.location="'."proyectos.php".'"</script>';
+        $nuevo=array();
+        foreach($_SESSION['proyectitos'] as $linea){
+            if($linea['id']!=$_GET['id']){
+                array_push($nuevo,$linea);
+                
             }
+            $_SESSION['proyectitos']=$nuevo;
+            echo '<script>window.location="'."proyectos.php".'"</script>';
         }
     }
+
+        // //BORRAMOS PROYECTOS POR ID
+        // if ($_GET['accion'] == "borrarid") {
+        //     foreach($_SESSION['proyectitos'] as &$value){
+        //         if($value['id']==$_GET['id']){
+        //             //unset($value);
+        //             unset($_SESSION['proyectitos'][$value['id']]);
+        //             echo '<script>window.location="'."proyectos.php".'"</script>';
+        //         }
+        //     }
+        // }
 
     //VER PROYECTO POR ID
     ver();
 
-    // VER PROYECTO POR ID OTRA MANERA
-    //     if ($_GET['accion'] == "informacion") {
-    //         foreach($_SESSION['proyectitos'] as &$value ){
-    //             if($value['id']==$_GET['id']){
-    //                 $_SESSION['id']=$_GET['id'];
-    //                 echo '<script>window.location="'."verProyecto.php".'</script>';
-    //         }
-    //     }
-    // }
+    if($_GET['accion']=="destroy"){
+        session_destroy();
+        echo '<script>window.location="'."login.php".'"</script>';
+    }
 ?>

@@ -8,16 +8,4 @@ function filtrado($datos){
 }
 
 
-function ver(){
-    if ($_GET['accion'] == "informacion") {
-        foreach($_SESSION['proyectitos'] as &$value ){
-            if($value['id']==$_GET['id']){
-                $_SESSION['id']=$_GET['id'];
-          echo '<script>window.location="'."verProyecto.php?iDD=".$_SESSION['id'].'"</script>';
-       
-        }
-    }
-}
-}
-
 ?>

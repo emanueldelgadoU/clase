@@ -76,10 +76,19 @@
 					</button>
 					<div class="collapse" id="tema3">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema3" aria-expanded="false">
-					Practica1
-					</button></li>
-					<li><a href="/tema3/practica1/Ejercicio1.php" class="link-dark rounded">Ejercicio 1</a></li>
+							
+						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
+						Practica1
+						</button></li>
+						<li><a href="/tema3/Practica1/login.php" class="link-dark rounded">login</a></li>
+						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
+						Ahorcado
+						</button></li>
+						<li><a href="/tema3/Ahorcado/index.php" class="link-dark rounded">Ahorcado</a></li>
+						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
+						Cookies
+						</button></li>
+						<li><a href="/tema3/Cookies/index.php" class="link-dark rounded">Cookies</a></li>
 					</ul>
 					</div>
 				</li>
