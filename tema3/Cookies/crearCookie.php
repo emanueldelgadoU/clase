@@ -94,11 +94,11 @@ if ($_GET) {
             //-----
 
         //Creación de la cookie
-        setcookie('servidor',encriptar($gustosString,$method, $clave, $iv), time()+60000, "/tema3/PracticaCokies", "localhost", false, true);
+        setcookie('servidor',encriptar($gustosString,$method, $clave, $iv), time()+60000, "/tema3", "primeraevaluacionphp.herokuapp.com", true, false);
         //echo "Cookie creada";
     } else {
         //Primera vez que entra
-        setcookie('servidor',encriptar("CreacionCookie#moda-0#deporte-0#juegos-0",$method, $clave, $iv), time()+60000, "/tema3", "localhost", false, true);
+        setcookie('servidor',encriptar("CreacionCookie#moda-0#deporte-0#juegos-0",$method, $clave, $iv), time()+60000, "/tema3", "primeraevaluacionphp.herokuapp.com", true, false);
 
     }
 
