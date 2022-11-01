@@ -8,32 +8,11 @@ function palabra(){
 }
 
 
-function pintar0(){
-  return "<img class='img-fluid' src='fotosA/000.png'>" ;
-}
 
-function pintar1(){
-  return "<img class='img-fluid' src='fotosA/001.png'>" ;
-}
-
-function pintar2(){
-  return "<img class='img-fluid' src='fotosA/002.png'>" ;
-}
-
-function pintar3(){
-  return "<img class='img-fluid' src='fotosA/003.png'>" ;
-}
-
-function pintar4(){
-  return "<img class='img-fluid' src='fotosA/004.png'>" ;
-}
-
-function pintar5(){
-  return "<img class='img-fluid' src='fotosA/005.png'>" ;
-}
-
-function pintar6(){
-  return "<img class='img-fluid' src='fotosA/006.png'>" ;
+function pintarArr($num){
+  $arrayFotos = ['fotosA/000.png','fotosA/001.png','fotosA/002.png',
+  'fotosA/003.png','fotosA/004.png','fotosA/005.png','fotosA/006.png'];
+  echo '<img src="'.$arrayFotos[$num].'" alt="">';
 }
 
 function gif(){

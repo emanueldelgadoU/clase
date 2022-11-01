@@ -1,6 +1,6 @@
 <?php
 session_start();
-//session_destroy();
+// session_destroy();
 include("lib.php");
 ?>
 
@@ -20,7 +20,14 @@ include("lib.php");
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
+<style>
+
+
+
+
+</style>
 <div class="container-fluid"
+
 <?php
 
 function pasarACaracter(){
@@ -50,6 +57,8 @@ function pintarArray($array){
 
 if(!isset($_SESSION['letras'])){
        
+        // echo pintar0();
+        
         echo "<br>";
         //CREAMOS TODAS LAS SESIONES
         $_SESSION['palabra']=str_split(palabra());
@@ -71,39 +80,74 @@ if(!isset($_SESSION['letras'])){
         foreach($_SESSION['palabraActual'] as $valor){
             echo $valor;
         }
-
         echo "</center>";
         echo "<br>";
+
         //PINTAMOS EL AHORCADO EN FUNCION DEL NUMERO DE FALLOS
-        echo "<center>";
         if($_SESSION['contador']==1){
-            pintarArr(1);
+            echo "<center>";
+            echo pintar1();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
         }elseif($_SESSION['contador']==0){
-            pintarArr(0);
+            echo "<center>";
+            echo pintar0();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
         }elseif($_SESSION['contador']==2){
-            pintarArr(2);
+            echo "<center>";
+            echo pintar2();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
         }elseif($_SESSION['contador']==3){
-            pintarArr(3);
+            echo "<center>";
+            echo pintar3();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
         }elseif($_SESSION['contador']==4){
-            pintarArr(4);
+            echo "<center>";
+            echo pintar4();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
         }elseif($_SESSION['contador']==5){
-            pintarArr(5);
+            echo "<center>";
+            echo pintar5();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
+        }elseif($_SESSION['contador']==6){
+            echo "<center>";
+            echo pintar6();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "<br>";
+            echo "</center>";
+            echo '<script>window.location="'."perdio.php".'"</script>'; 
         }
-
-        echo "<br>";
-        echo "<h3>".'Letras usadas:'."<h3>". pintarArray($_SESSION['letras']);
-        echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
-        echo "</center>";
 
         //GANA EL JUEGO
         if($_SESSION['palabraActual']==$_SESSION['palabra']){
             echo '<script>window.location="'."gano.php".'"</script>';
             //header("Location: gano.php"); este location no funciona asi que pongo script
-        }
-        //PIERDE EL JUEGO
-        if($_SESSION['contador']>5){
-        echo '<script>window.location="'."perdio.php".'"</script>';
-        //header("Location: gano.php"); este location no funciona asi que pongo script
         }
 }
 ?>
@@ -143,6 +187,7 @@ if(!isset($_SESSION['letras'])){
 <div>
 </center>
 </div>
+
 <script>
 
 // function pintar(){
