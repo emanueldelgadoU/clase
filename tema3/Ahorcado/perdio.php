@@ -21,13 +21,13 @@ include("lib.php");
 
 
 <div class="container-fluid" style="background-color:red">
-
+<br>
     <center>
     <img src='fotosA/giphy.gif'>
+    <br>
     <?php
-    echo '<a href="controlador.php?accion=nuevoJuego"
-    id="nuevoJuego" name="nuevoJuego" class="btn btn-dark m-3">NUEVO JUEGO
-    </a>'
+    echo '<a href="controlador.php?accion=nuevoJuego" class="btn btn-dark m-3">NUEVO JUEGO
+    </a>';
     ?>
     </center>
 

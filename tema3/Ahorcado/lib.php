@@ -2,7 +2,7 @@
 
 
 function palabra(){
-    $arrayPalabra=["HOLA","HOLA","PALA","HOLA","HOLA", "HOLA","HOLA"];
+    $arrayPalabra=["HOLA","HOLA","HOLA","HOLA","HOLA", "HOLA","HOLA"];
     $palabra=$arrayPalabra[rand(0,6)];
     return $palabra;
 }

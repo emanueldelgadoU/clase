@@ -142,7 +142,12 @@ if(!isset($_SESSION['letras'])){
             echo "<br>";
             echo "</center>";
             echo '<script>window.location="'."perdio.php".'"</script>'; 
+        }
 
+        //GANA EL JUEGO
+        if($_SESSION['palabraActual']==$_SESSION['palabra']){
+            echo '<script>window.location="'."gano.php".'"</script>';
+            //header("Location: gano.php"); este location no funciona asi que pongo script
         }
 }
 ?>
