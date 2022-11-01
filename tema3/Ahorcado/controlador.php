@@ -37,9 +37,8 @@ if($_SESSION['palabraActual']==$_SESSION['palabra']){
 if(isset($_GET['accion'])){
   if($_GET['accion']=="nuevoJuego"){
     session_destroy();
-    header("Location: index.php");
+    echo '<script>window.location="'."index.php".'"</script>';
   }
 }
-
-header("Location: index.php");
+echo '<script>window.location="'."index.php".'"</script>';
 ?>
