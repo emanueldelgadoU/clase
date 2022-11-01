@@ -1,6 +1,6 @@
 <?php
 session_start();
-//session_destroy();
+// session_destroy();
 include("lib.php");
 ?>
 
@@ -24,12 +24,11 @@ include("lib.php");
 
 <style>
 
-img{
-float: right;
-}
+
+
 
 </style>
-<div class="container">
+<div class="container-fluid"
 
 <?php
 
@@ -58,100 +57,100 @@ function pintarArray($array){
 // --------------------------------------------------------------------------------------------
 
 
-
 if(!isset($_SESSION['letras'])){
-
+        echo "<center>";
+        echo pintar0();
+        echo "<br>";
         //CREAMOS TODAS LAS SESIONES
         $_SESSION['palabra']=str_split(palabra());
         $_SESSION['palabraActual']=pasarACaracter();
         $_SESSION['letras']=[];
         $_SESSION['encontrada']=false;
         $_SESSION['contador']=0;
-
+       
         //MOSTRAMOS LA PALABRA OCULTA
         foreach($_SESSION['palabraActual'] as $valor){
             echo $valor;
         }
-        
-        foreach($_SESSION['palabra'] as $valor){
-            echo $valor;
-        }
+        echo "</center>";
 
-        pintar0();
 
 }else{
         //MOSTRAMOS LA PALABRA OCULTA con los aciertos si los hubiera
+        echo "<center>";
         foreach($_SESSION['palabraActual'] as $valor){
             echo $valor;
         }
-
+        echo "</center>";
         echo "<br>";
 
-
-    
         //PINTAMOS EL AHORCADO EN FUNCION DEL NUMERO DE FALLOS
-
-
         if($_SESSION['contador']==1){
-            pintar1();
+            echo "<center>";
+            echo pintar1();
             echo "<br>";
             echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
             echo "<h3>".'Letras usadas:'."<h3>";
             pintarArray($_SESSION['letras']);
-
+            echo "</center>";
+        }elseif($_SESSION['contador']==0){
+            echo "<center>";
+            echo pintar0();
+            echo "<br>";
+            echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
+            echo "<h3>".'Letras usadas:'."<h3>";
+            pintarArray($_SESSION['letras']);
+            echo "</center>";
         }elseif($_SESSION['contador']==2){
-            pintar2();
+            echo "<center>";
+            echo pintar2();
             echo "<br>";
             echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
             echo "<h3>".'Letras usadas:'."<h3>";
             pintarArray($_SESSION['letras']);
-
+            echo "</center>";
         }elseif($_SESSION['contador']==3){
-            pintar3();
+            echo "<center>";
+            echo pintar3();
             echo "<br>";
             echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
             echo "<h3>".'Letras usadas:'."<h3>";
             pintarArray($_SESSION['letras']);
-
+            echo "</center>";
         }elseif($_SESSION['contador']==4){
-            pintar4();
+            echo "<center>";
+            echo pintar4();
             echo "<br>";
             echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
             echo "<h3>".'Letras usadas:'."<h3>";
             pintarArray($_SESSION['letras']);
-
+            echo "</center>";
         }elseif($_SESSION['contador']==5){
-            pintar5();
+            echo "<center>";
+            echo pintar5();
             echo "<br>";
             echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
             echo "<h3>".'Letras usadas:'."<h3>";
             pintarArray($_SESSION['letras']);
-       
+            echo "</center>";
         }elseif($_SESSION['contador']==6){
-            pintar6();
+            echo "<center>";
+            echo pintar6();
             echo "<br>";
             echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
             echo "<h3>".'Letras usadas:'."<h3>";
             pintarArray($_SESSION['letras']);
             echo "<br>";
-            echo '<a href="controlador.php?accion=nuevoJuego"
-            id="nuevoJuego" name="nuevoJuego" class="btn btn-dark m-3">NUEVO JUEGO
-            </a>';
-        }
+            echo "</center>";
+            echo '<script>window.location="'."perdio.php".'"</script>'; 
 
-       
-    
-       
-       
-        //GANADOR
-        if($_SESSION['palabraActual']==$_SESSION['palabra']){
-            echo "GANASTES";
         }
 }
 ?>
-
+<center>
 <div class='row'>
     <div class='col-12'>
+       </button>
         <h3>TECLADO</h3>
         <a class="btn btn-dark m-1"href='controlador.php?letra=A'>A</a>
         <a class="btn btn-dark m-1"href='controlador.php?letra=B'>B</a>
@@ -182,7 +181,18 @@ if(!isset($_SESSION['letras'])){
         <a class="btn btn-dark m-1"href='controlador.php?letra=Z'>Z</a>
     <div>
 <div>
+</center>
 </div>
+
+<script>
+
+// function pintar(){
+//     document.querySelector(".btn btn-dark m-1").classList.replace("btn btn-primary m-1")
+// }
+
+
+</script>
+
 </body>
 </html>
 

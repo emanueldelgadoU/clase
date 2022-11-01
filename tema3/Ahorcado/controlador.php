@@ -3,9 +3,7 @@ session_start();
 //session_destroy();
 include("lib.php");
 ?>
-
 <?php
-
 
 $letra=$_GET["letra"];
 
@@ -21,21 +19,27 @@ if(in_array($letra, $_SESSION['palabra'])){
       if ($_SESSION['palabra'][$i] == $letra) {
           $_SESSION['palabraActual'][$i] = $letra;
       }
-
     }
 
 //SI AL LETRA NO ESTA EN LA PALABRA SUMAMOS CONTADOR DE FALLOS
 }else{ 
   if($_SESSION['contador']<=5)
   $_SESSION['contador']++;
-
 }
 
-//BOTON JUGAR DE NUEVO
-if($_GET['accion']=="nuevoJuego"){
-  session_destroy();
+//GANA EL JUEGO
+if($_SESSION['palabraActual']==$_SESSION['palabra']){
+  echo '<script>window.location="'."gano.php".'"</script>';
+  //header("Location: gano.php"); este location no funciona asi que pongo script
 }
 
-echo '<script>window.location="'."index.php".'"</script>'; 
+//JUGAR DE NUEVO
+if(isset($_GET['accion'])){
+  if($_GET['accion']=="nuevoJuego"){
+    session_destroy();
+    header("Location: index.php");
+  }
+}
 
+header("Location: index.php");
 ?>

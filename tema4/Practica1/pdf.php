@@ -1,20 +1,24 @@
 <?php
-
+session_start();
+// session_destroy();
+?>
+<?php
 //Load Composer's autoloader
-require './vendor/autoload.php';
+require '../vendor/autoload.php';
+
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
 $pdf->setCreator(PDF_CREATOR);
-$pdf->setAuthor('EMI');
-$pdf->setTitle('TCPDF Example 001');
-$pdf->setSubject('TCPDF Tutorial');
-$pdf->setKeywords('TCPDF, PDF, example, test, guide');
+$pdf->setAuthor('Javi Profe');
+$pdf->setTitle('Proyectos de mi empresa');
+$pdf->setSubject('Proyectos');
+$pdf->setKeywords('PHP, PDF, proyectos');
 
 // set default header data
-$pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+//$pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
 $pdf->setFooterData(array(0,64,0), array(0,64,128));
 
 // set header and footer fonts
@@ -60,13 +64,24 @@ $pdf->AddPage();
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
 // Set some content to print
-$html = <<<EOD
-<h1>Welcome to <a href="http://www.tcpdf.org" style="text-decoration:none;background-color:#CC0000;color:black;">&nbsp;<span style="color:black;">TC</span><span style="color:white;">PDF</span>&nbsp;</a>!</h1>
-<i>This is the first example of TCPDF library.</i>
-<p>This text is printed using the <i>writeHTMLCell()</i> method but you can also use: <i>Multicell(), writeHTML(), Write(), Cell() and Text()</i>.</p>
-<p>Please check the source code documentation and other examples for further information.</p>
-<p style="color:#CC0000;">TO IMPROVE AND EXPAND TCPDF I NEED YOUR SUPPORT, PLEASE <a href="http://sourceforge.net/donate/index.php?group_id=128076">MAKE A DONATION!</a></p>
-EOD;
+$html = "
+<h1>PROYECTOS</h1>
+<i>Todos los proyectos de mi empresa</i><br><br>";
+$html .= "<table border='1'>";
+$html .= "<tr><td>Nombre</td><td>Descripción</td><td>Importancia</td><td>Porcentaje</td></tr>";
+
+foreach($_SESSION['proyectitos'] as $valor){
+	$html .= "<tr>";
+	$html .= "<td>".$valor["nombre"]."</td>";
+	$html .= "<td>".$valor["fechaini"]."</td>";
+	$html .= "<td>".$valor["fechafin"]."</td>";
+	$html .= "<td>".$valor["dias"]."</td>";
+    $html .= "<td>".$valor["porcentaje"]."</td>";
+    $html .= "<td>".$valor["importancia"]."</td>";
+	$html .= "</tr>";
+}
+
+$html .= "</table>";
 
 // Print text using writeHTMLCell()
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
