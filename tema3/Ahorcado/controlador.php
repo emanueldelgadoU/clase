@@ -1,44 +1,40 @@
 <?php
 session_start();
-//session_destroy();
 include("lib.php");
 ?>
 <?php
-
-$letra=$_GET["letra"];
-
-//SI LA LETRA INTRODUCIDA NO ESTA EN EL ARRAY DE LETRAS USADAS LA METEMOS
-if(!in_array($letra, $_SESSION['letras'])){
-  array_push($_SESSION['letras'],$letra);
+//BOTON JUGAR DE NUEVO
+if(isset($_GET['accion'])){
+  if($_GET['accion']=="nuevoJuego")
+  session_destroy();
+  header("Location: index.php");
 }
 
+if(isset($_GET['letra'])){
+  $letra=$_GET["letra"];
+}
+//SI LA LETRA INTRODUCIDA NO ESTA EN EL ARRAY DE LETRAS USADAS LA METEMOS
+if(isset($_SESSION['letras'])){
+  if(!in_array($letra, $_SESSION['letras'])){
+    array_push($_SESSION['letras'],$letra);
+  }
+}
 //SI LA LETRA ESTA EN LA PALABRA, PINTAMOS LA LETRA
-if(in_array($letra, $_SESSION['palabra'])){
+if(isset($_SESSION['palabra'])){
+ 
+  if(in_array($letra, $_SESSION['palabra'])){
 
     for($i=0; $i < count($_SESSION['palabra']); $i++) {
       if ($_SESSION['palabra'][$i] == $letra) {
           $_SESSION['palabraActual'][$i] = $letra;
       }
+
     }
-
-//SI AL LETRA NO ESTA EN LA PALABRA SUMAMOS CONTADOR DE FALLOS
-}else{ 
-  if($_SESSION['contador']<=5)
-  $_SESSION['contador']++;
-}
-
-//GANA EL JUEGO
-if($_SESSION['palabraActual']==$_SESSION['palabra']){
-  echo '<script>window.location="'."gano.php".'"</script>';
-  //header("Location: gano.php"); este location no funciona asi que pongo script
-}
-
-//JUGAR DE NUEVO
-if(isset($_GET['accion'])){
-  if($_GET['accion']=="nuevoJuego"){
-    session_destroy();
-    echo '<script>window.location="'."index.php".'"</script>';
+  //SI AL LETRA NO ESTA EN LA PALABRA SUMAMOS CONTADOR DE FALLOS
+  }else{ 
+    if($_SESSION['contador']<=5)
+    $_SESSION['contador']++;
   }
 }
-echo '<script>window.location="'."index.php".'"</script>';
+header("Location: index.php");
 ?>
