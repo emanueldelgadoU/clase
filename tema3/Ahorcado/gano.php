@@ -20,7 +20,7 @@
             <img src='fotosA/giphy.gif'>
             <br>
             <?php
-            echo '<a href="controlador.php" class="btn btn-dark m-3"> VOLVER A JUGAR
+            echo '<a href="controlador.php?accion=nuevoJuego"" class="btn btn-dark m-3"> VOLVER A JUGAR
             </a>';
             ?>
         </center>
