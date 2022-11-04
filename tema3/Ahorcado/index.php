@@ -20,32 +20,22 @@ include("lib.php");
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
-<div class="container-fluid"
+<div class="container-fluid">
 <?php
-
-function pasarACaracter(){
-
-    $nuevoArr=array();
-
-    for($i=0; $i<count(($_SESSION['palabra'])); $i++){
-        array_push($nuevoArr,"___ ");
-    }
-    return $nuevoArr;
-}
-
-function pintarArray($array){
-
-    echo "<div class='row'>";
-    echo "<div class='col-12'>";
-    foreach($array as $valor){
-        echo "<a class='btn btn-info m-1'>".$valor."<a>";
-    }
-    echo "<div>";
-    echo "<div>";
-}
 
 
 // --------------------------------------------------------------------------------------------
+
+
+// if (isset($_POST['accion'])){
+
+
+// }else{
+
+
+
+// }
+
 
 
 if(!isset($_SESSION['letras'])){
@@ -57,101 +47,56 @@ if(!isset($_SESSION['letras'])){
         $_SESSION['letras']=[];
         $_SESSION['encontrada']=false;
         $_SESSION['contador']=0;
+
         echo "<center>";
-        //MOSTRAMOS LA PALABRA OCULTA
-        foreach($_SESSION['palabraActual'] as $valor){
-            echo $valor;
-        }
+            pintarArr(0);
+            echo "<br>";
+            pintarTeclado();
+            //MOSTRAMOS LA PALABRA OCULTA
+            foreach($_SESSION['palabraActual'] as $valor){
+                echo $valor;
+            }
         echo "</center>";
 
 
 }else{
-        //MOSTRAMOS LA PALABRA OCULTA con los aciertos si los hubiera
+      
+        //COMPROBAMOS SI GANO O PINTAMOS SEGUN EL NUMERO DE FALLOS
         echo "<center>";
-        foreach($_SESSION['palabraActual'] as $valor){
-            echo $valor;
-        }
-
-        echo "</center>";
-        echo "<br>";
-        //PINTAMOS EL AHORCADO EN FUNCION DEL NUMERO DE FALLOS
-        echo "<center>";
-        if($_SESSION['contador']==1){
-            pintarArr(1);
-        }elseif($_SESSION['contador']==0){
-            pintarArr(0);
-        }elseif($_SESSION['contador']==2){
-            pintarArr(2);
-        }elseif($_SESSION['contador']==3){
-            pintarArr(3);
-        }elseif($_SESSION['contador']==4){
-            pintarArr(4);
-        }elseif($_SESSION['contador']==5){
-            pintarArr(5);
-        }
-
-        echo "<br>";
-        echo "<h3>".'Letras usadas:'."<h3>". pintarArray($_SESSION['letras']);
-        echo '<h3 class="">'."Numero de fallos : ".$_SESSION['contador'].'<h3>';
-        echo "</center>";
-
-        //GANA EL JUEGO
         if($_SESSION['palabraActual']==$_SESSION['palabra']){
-            echo '<script>window.location="'."gano.php".'"</script>';
-            //header("Location: gano.php"); este location no funciona asi que pongo script
+            gano();
+        }else{
+
+            if($_SESSION['contador']==1){
+                pintarArr(1);
+            }elseif($_SESSION['contador']==0){
+                pintarArr(0);
+            }elseif($_SESSION['contador']==2){
+                pintarArr(2);
+            }elseif($_SESSION['contador']==3){
+                pintarArr(3);
+            }elseif($_SESSION['contador']==4){
+                pintarArr(4);
+            }elseif($_SESSION['contador']==5){
+                pintarArr(5);
+            }elseif($_SESSION['contador']>5){
+                pierde();
+            }
         }
-        //PIERDE EL JUEGO
-        if($_SESSION['contador']>5){
-        echo '<script>window.location="'."perdio.php".'"</script>';
-        //header("Location: gano.php"); este location no funciona asi que pongo script
-        }
+        echo "<br>";
+        echo "<h3 class='mt-3 mb-3'>".'Letras usadas:'."<h3>";
+        echo  pintarArray($_SESSION['letras']);
+        echo "<h3 class='mt-3 mb-3'>".'Numero de fallos : '.$_SESSION["contador"]."<h3>";
+        pintarTeclado();
+        //MOSTRAMOS LA PALABRA OCULTA con los aciertos si los hubiera
+        pintarLetras($_SESSION['palabraActual']);
+        echo "</center>";
 }
+
+
+
 ?>
-<center>
-<div class='row'>
-    <div class='col-12'>
-       </button>
-        <h3>TECLADO</h3>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=A'>A</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=B'>B</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=C'>C</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=D'>D</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=E'>E</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=F'>F</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=G'>G</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=H'>H</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=I'>I</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=J'>J</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=K'>K</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=L'>L</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=M'>M</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=N'>N</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=Ñ'>Ñ</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=O'>O</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=P'>P</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=Q'>Q</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=R'>R</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=S'>S</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=T'>T</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=U'>U</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=V'>V</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=W'>W</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=X'>X</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=Y'>Y</a>
-        <a class="btn btn-dark m-1"href='controlador.php?letra=Z'>Z</a>
-    <div>
-<div>
-</center>
 </div>
-<script>
-
-// function pintar(){
-//     document.querySelector(".btn btn-dark m-1").classList.replace("btn btn-primary m-1")
-// }
-
-
-</script>
-
 </body>
 </html>
 

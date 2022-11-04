@@ -20,7 +20,7 @@ function enviar(){
 
 
 //Load Composer's autoloader
-require '../vendor/autoload.php';
+require './vendor/autoload.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -68,7 +68,7 @@ try {
 function pdf(){
 
 //Load Composer's autoloader
-require '../vendor/autoload.php';
+require './vendor/autoload.php';
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
