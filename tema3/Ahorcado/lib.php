@@ -12,14 +12,14 @@ function pasarACaracter(){
 
 function pintarArray($array){
   foreach($array as $valor){
-      echo "<a class='btn btn-info m-1'>".$valor."<a>";
+      echo "<a class='btn btn-warning m-1'>".$valor."<a>";
   }
 }
 
 
 function pintarLetras($array){
   foreach($array as $valor){
-      echo "<a 'class='h1 text-info'>".$valor."<a>";
+      echo "<a 'class='h1 text-danger'>".$valor."<a>";
   }
 }
 
