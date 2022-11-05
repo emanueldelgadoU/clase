@@ -37,7 +37,6 @@ include("lib.php");
 // }
 
 
-
 if(!isset($_SESSION['letras'])){
        
         echo "<br>";

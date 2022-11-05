@@ -20,7 +20,7 @@ function enviar(){
 
 
 //Load Composer's autoloader
-require './vendor/autoload.php';
+require './estilos/autoload.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -32,7 +32,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'emanueldelgado.u@gmail.com';                     //SMTP username
-    $mail->Password   = 'civmmmmviruzprmz';                               //SMTP password
+    $mail->Password   = 'ykydoegjgabpoydg';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -68,7 +68,7 @@ try {
 function pdf(){
 
 //Load Composer's autoloader
-require './vendor/autoload.php';
+require './estilos/autoload.php';
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);

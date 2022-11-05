@@ -187,7 +187,7 @@ foreach($_SESSION['proyectitos'] as $valor){
 
 
 <!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="estilos/chart.js/Chart.min.js"></script>
    
 <script>
 // Set new default font family and font color to mimic Bootstrap's default styling
