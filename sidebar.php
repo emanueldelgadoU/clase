@@ -84,7 +84,7 @@
 						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
 						Ahorcado
 						</button></li>
-						<li><a href="/tema3/Ahorcado/index.php" class="link-dark rounded">Ahorcado</a></li>
+						<li><a href="/tema3/Ahorcado/boton.php" class="link-dark rounded">Ahorcado</a></li>
 						<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
 						Cookies
 						</button></li>

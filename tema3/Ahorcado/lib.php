@@ -25,14 +25,14 @@ function pintarLetras($array){
 
 
 function palabra(){
-    $arrayPalabra=["HOLA","HOLA","HOLA","HOLA","HOLA", "HOLA","HOLA"];
+    $arrayPalabra=["HOLA","PELOTA","PLAYA","CAMION","AVION", "PUENTE","BALONCESTO"];
     $palabra=$arrayPalabra[rand(0,6)];
     return $palabra;
 }
 
 
 function pintarArr($num){
-  $arrayFotos = ['fotosA/000.png','fotosA/001.png','fotosA/002.png',
+  $arrayFotos = ['fotosA/10.png','fotosA/001.png','fotosA/002.png',
   'fotosA/003.png','fotosA/004.png','fotosA/005.png','fotosA/006.png'];
   echo '<img src="'.$arrayFotos[$num].'" alt="">';
 }
