@@ -99,7 +99,6 @@ if(!isset($_SESSION['letras'])){
 }
 
 
-
 ?>
 </div>
 </body>
