@@ -102,7 +102,7 @@
 					<li><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema2" aria-expanded="false">
 						Enviar PDF
 						</button></li>
-						<li><a href="/tema4/Practica1/login.php" class="link-dark rounded">Login PDF</a></li>
+						<li><a href="/tema4/enviarPDF.php" class="link-dark rounded">Login PDF</a></li>
 					</ul>
 					</div>
 				</li>
