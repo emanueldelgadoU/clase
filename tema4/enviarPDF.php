@@ -27,7 +27,7 @@ body{
     <img src='fotosA/giphy3.gif'>
     <br>
     <a href="https://enviarpdf.herokuapp.com/login.php" class="btn btn-dark m-3">JUGAR AHORA
-    </a>';
+    </a>
     </center>
 </div>
 
