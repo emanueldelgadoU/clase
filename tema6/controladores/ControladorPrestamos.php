@@ -5,7 +5,7 @@ class ControladorPrestamos {
 
     public static function mostrarPrestamos() {
         //LLamar al modelo para obtener todas las películas en un array de Pelicula
-        $prestamos = prestamosBD::getPrestamos();
+        $prestamos = PrestamosBD::getPrestamos();
 
         //Llamar a una vista para pintar esas películas
         vistaPrestamosTodos::render($prestamos);
