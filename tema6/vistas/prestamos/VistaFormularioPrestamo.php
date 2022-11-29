@@ -2,10 +2,12 @@
 
     class VistaFormularioPrestamo {
 
-        public static function render() {
-
+        public static function render($prestamos,$libros,$usuarios){
+          
           include("./p/header.php");
           ?>
+     
+        
      
           <div class="card-body">
           <div class="p-5">
@@ -14,18 +16,36 @@
               </div>
               <form class="user" action="enrutador.php" method="post">
               <div class='mb-3'>
-                          <label for='Id Libro' class='form-label'>Id Libro</label>
-                          <input type='number' name='idLibro' class='form-control form-control-user'>
-                      </div>
+
+        
+              
+              <div class='mb-3'>
+                <select class='form-control' name='idUsuario'>
+                    <option selected>Selecciona Usuario</option>
+                    <?php 
+                    foreach($usuarios as $usuario){
+                
+                     echo '<option  value="'.$usuario->getIdUsuario().'">'.$usuario->getNombre().'</option>';
+                    }
+                    ?>
+                </select> 
+              </div>
+           
+              <div class='mb-3'>
+                <select class='form-control' name='idLibro'>
+                    <option selected>Selecciona Libro</option>
+                    <?php 
+                    foreach($libros as $libro){
+                
+                     echo '<option  value="'.$libro->getIdLibro().'">'.$libro->getTitulo().'</option>';
+                    }
+                    ?>
+                </select> 
+              </div>
 
                       <div class='mb-3'>
-                          <label for='Id Usuario' class='form-label'>Id Usuario</label>
-                          <input type="number" class='form-control form-control-user' name="idUsuario" id="">
-                      </div>
-
-                      <div class='mb-3'>
-                          <label for='Fecha Inicio' class='form-label'>Fecha Inicio</label>
-                          <input type='date' name='fechaInicio' class='form-control form-control-user'>
+                          <label for='Fecha Inicio' class='form-label'>fecha Inicio</label> <br>
+                          <input type='date' name='fechaInicio' class='form-control '>
                       </div>
 
                       <div class='mb-3'>
@@ -35,7 +55,14 @@
                     
                       <div class='mb-3'>
                           <label for='Estado' class='form-label'>Estado</label>
-                          <input type='text' name='estado' class='form-control form-control-user'>
+                          <select class='form-control' name="estado" id="estado">
+                            <option selected>Eligue Estado</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Devuelto">Devuelto</option>
+                            <option value="SobrePasado1Mes">SobrePasado1Mes</option>
+                            <option value="SobrePasado1Año">SobrePasado1Año</option>
+                          </select>
+
                       </div>
                       <input type='hidden' name='accion' value='crearPrestamo'>
                         <button class='btn btn-dark btn-user btn-block' type='submit'>Crear</button>
@@ -43,6 +70,9 @@
               <hr>
           </div>
       </div>
+      </div>
+
+
      
       <?php
       

@@ -2,6 +2,7 @@
 
     class Prestamo {
 
+        private $idPrestamo;
         private $idLibro;
         private $idUsuario;
         private $fechaInicio;
@@ -120,7 +121,24 @@
         }
 
 
+        /**
+         * Get the value of idPrestamo
+         */ 
+        public function getIdPrestamo()
+        {
+                return $this->idPrestamo;
+        }
 
-        
+        /**
+         * Set the value of idPrestamo
+         *
+         * @return  self
+         */ 
+        public function setIdPrestamo($idPrestamo)
+        {
+                $this->idPrestamo = $idPrestamo;
+
+                return $this;
+        }
     }
 ?>

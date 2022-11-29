@@ -228,17 +228,16 @@
 
 
                     <div class='mb-3'>
-                            <label for='titlulo' class='form-label'>DNI Cliente</label>
-                            <input type='text' name='DNICliente' class='form-control'>
-                        </div>
-
+                        <label for='titlulo' class='form-label'>DNI</label>
+                        <input type='text' name='dni' class='form-control'>
+                    </div>
 
                     </form>
                 </div>
                 <div class="modal-footer">
                     <!--<button type="button" class="btn btn-secondary hidden-xs" data-bs-dismiss="modal">Close</button>-->
-                    <button type='submit' name='buscarDNI' class='btn btn-primary' form="formBuscarDNI"
-                        formaction="controlador.php" formmethod="get">Enviar</button>
+                    <button type='submit' name='buscarPorDNI' class='btn btn-primary' form="formBuscarDNI"
+                        formaction="enrutador.php" formmethod="GET">Enviar</button>
                 </div>
             </div>
         </div>

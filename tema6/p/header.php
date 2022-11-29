@@ -45,34 +45,34 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                <!-- <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                     aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Gestionar Prestamos</span>
-                </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                </a> -->
+                <!-- <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="#" data-toggle="modal" data-target="#insertar">Añadir Prestamo</a>
                         <a class="collapse-item" href="#" data-toggle="modal" data-target="#buscarDNI">Burcar por DNI</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Libros</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="usuarios.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Usuarios</span></a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
-                <a class="nav-link" href="prestamos.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Prestamos</span></a>
             </li>

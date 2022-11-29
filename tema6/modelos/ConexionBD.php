@@ -25,23 +25,6 @@
         public static function cerrar() {
             self::$conexion = null;
         }
-
-       
-
-        
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

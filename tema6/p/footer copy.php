@@ -12,16 +12,16 @@
     <title>SB Admin</title>
 
     <!-- Custom fonts for this template-->
-    <link href="./plantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="./plantilla/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Bootstrap core JavaScript-->
-    <script src="./plantilla/vendor/jquery/jquery.min.js"></script>
-    <script src="./plantilla/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -97,18 +97,18 @@
 
 
     <!-- Core plugin JavaScript-->
-    <script src="./plantilla/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="./plantilla/js/sb-admin-2.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="./plantilla/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="./plantilla/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="./plantilla/vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="./plantilla/js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
 
     <script>
 
@@ -151,7 +151,7 @@
         //     },
         // });
     </script>
-    <script src="./plantilla/js/demo/chart-bar-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
 
 
     <!-- MODAL INSERTAR PRESTAMO -->

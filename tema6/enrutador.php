@@ -42,12 +42,11 @@ spl_autoload_register("autocarga");
 if ($_REQUEST) {
     if (isset($_REQUEST['accion'])) {
 
-
         //INICIO
         if ($_REQUEST['accion'] == "inicio") {
             ControladorPrestamos::mostrarPrestamos();
         }
-
+        //FORMULARIO PRESTAMO
         if ($_REQUEST['accion'] == "formularioPrestamo") {
             ControladorPrestamos::formularioPrestamo();
         }
@@ -64,6 +63,31 @@ if ($_REQUEST) {
             ControladorPrestamos::crearPrestamo($prestamo);
         }
 
+         //FORMULARIO PRESTAMO
+        if ($_REQUEST['accion'] == "modificarPrestamo") {
+
+            // $prestamo["idPrestamo"] = filtrado($_REQUEST['idPrestamo']);
+            // $prestamo["fechaFin"] = filtrado($_REQUEST['fechaFin']);
+            // $prestamo["estado"] = filtrado($_REQUEST['estado']);
+            //ControladorPrestamos::actualizarPrestamo($prestamo); asi tambien se puede 
+            $id = filtrado($_REQUEST['idPrestamo']);
+            $fecha = filtrado($_REQUEST['fechaFin']);
+            $estado = filtrado($_REQUEST['estado']);
+            ControladorPrestamos::actualizarPrestamo($id,$fecha,$estado);
+
+        }
+
+        //MOSTRAR POR DNI
+           if ($_REQUEST['accion'] == "buscarPorDNI") {
+            $dni=filtrado($_REQUEST['dni']);
+            ControladorPrestamos::buscarPorUser($dni);
+        }
+
+        //MOSTRAR POR DNI
+        if ($_REQUEST['accion'] == "buscarPorEstado") {
+            $estado=filtrado($_REQUEST['estado']);
+            ControladorPrestamos::buscarPorEstado($estado);
+        }
 
     }
 }

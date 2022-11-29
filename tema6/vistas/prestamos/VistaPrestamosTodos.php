@@ -5,8 +5,35 @@
         public static function render($prestamos) {
        
           include("./p/header.php");
-          echo "<a href='enrutador.php?accion=formularioPrestamo' class='btn btn-dark float-right'>Nuevo Prestamo</a>";
+
+          
+ 
+          echo '<div class="float-left">';
+          echo '<form class="user" action="enrutador.php" method="post">';
+          echo '<input type="text" class="form-control" placeholder="DNI" name="dni" >';
+          echo '<input type="hidden" name="accion" value="buscarPorDNI">';
+          echo '<button class="btn btn-warning mt-2 mb-2 " type="submit">BUSCAR</button>';
+          echo '</form>';
+          echo '</div>';
+
+          echo '<div class="float-left ml-2">';
+          echo '<form class="user" action="enrutador.php" method="post">';
+          echo '<select class="form-select" name="estado">
+                  <option selected> ESTADO </option>
+                  <option value="Activo">Activo</option>
+                  <option value="Devuelto">Devuelto</option>
+                  <option value="SobrePasado1Mes">SobrePasado1Mes</option>
+                  <option value="SobrePasado1Año">SobrePasado1Año</option>
+                  </select>';
+          echo '<input type="hidden" name="accion" value="buscarPorEstado">';
+          echo '<button class="btn btn-warning mt-2 mb-2" type="submit">BUSCAR</button>';
+          echo '</form>';
+          echo '</div>';
+
+
+          echo "<a href='enrutador.php?accion=formularioPrestamo' class='btn btn-dark float-right m-b3'>Nuevo Prestamo</a>";
           echo "<table class='table table-dark table-bordered text-center' style='font-size: 15px;align-items: center;' id='dataTable' width='100%' cellspacing='0'>";
+      
           //Cabecera
           echo "<tr>";
           echo "<th> TITULO </th>";
@@ -23,23 +50,25 @@
               echo "<tr>";
               echo '<td>' . $prestamo->titulo . '</td>';
               echo '<td>' . $prestamo->dni . '</td>';
-              echo '<td>' . $prestamo->getFechaInicio() . '</td>';?>
-            <form action=""></form>
-            <?php
+              echo '<td>' . $prestamo->getFechaInicio() . '</td>';
+            
               echo '<form class="user" action="enrutador.php" method="post">';
-              echo "<td>" . "<input type='date' name='fechaInicio' value=".$prestamo->getFechaFin()." class='form-control form-control-user'>". "</td>";
-              echo "<td>
-              <select class='form-select' name='estado'= aria-label='Default select example'>
-                  <option selected>".$prestamo->getEstado()."</option>
-                  <option name='estado' value='ACTIVO'>ACTIVO</option>
-                  <option name='estado' value='DEVUELTO'>DEVUELTO</option>
-                  <option name='estado' value='sobrepasado1Mes'>sobrepasado1Mes</option>
-                  <option name='estado' value='sobrepasado1Año'>sobrepasado1Año</option>
+              echo '<td><input type="date" name="fechaFin" value="'.$prestamo->getFechaFin().'"class="form-control"></td>';
+              
+              echo'<td><select class="form-select" name="estado">
+                  <option selected>'.$prestamo->getEstado().'</option>
+                  <option value="Activo">Activo</option>
+                  <option value="Devuelto">Devuelto</option>
+                  <option value="SobrePasado1Mes">SobrePasado1Mes</option>
+                  <option value="SobrePasado1Año">SobrePasado1Año</option>
+                  </select></td>';
 
-              </select></td>";
-              echo '<form>';
+              echo '<input type="hidden" name="idPrestamo" value="'.$prestamo->getIdPrestamo().'">';
+              echo '<td> <input type="hidden" name="accion" value="modificarPrestamo">
+              <button class="btn btn-warning btn-user btn-block" type="submit">Modificar</button><td>';
 
-      
+              echo '</form>';
+              echo "</tr>";
           }
       
           echo "</table>";
