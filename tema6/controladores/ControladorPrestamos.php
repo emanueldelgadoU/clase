@@ -8,7 +8,7 @@ class ControladorPrestamos {
         $prestamos = PrestamosBD::getPrestamos();
 
         //Llamar a una vista para pintar esas películas
-        vistaPrestamosTodos::render($prestamos);
+        VistaPrestamosTodos::render($prestamos);
     }
 
 
@@ -32,12 +32,12 @@ class ControladorPrestamos {
 
     public static function buscarPorUser($dni) {
         $prestamos=PrestamosBD::getPrestamosPorDNI($dni);
-        vistaPrestamosTodos::render($prestamos);
+        VistaPrestamosTodos::render($prestamos);
     }
 
     public static function buscarPorEstado($estado) {
         $prestamos=PrestamosBD::getPrestamosPorEstado($estado);
-        vistaPrestamosTodos::render($prestamos);
+        VistaPrestamosTodos::render($prestamos);
     }
 
 
