@@ -27,6 +27,8 @@ class ControladorPartida {
         $manoCrupier = unserialize($_SESION['partida']);
         $valorManorCrupier= $manoCrupier->getCrupier()->valorMano();
 
+        
+
      
     
     

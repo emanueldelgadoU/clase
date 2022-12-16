@@ -13,16 +13,19 @@ class ControladorEnlace {
 
     public static function insertarNuevoEnlace($enlace) {
 
-        //SIN OBJETO
+        
         EnlaceBD::addEnlace($enlace);
         echo "<script>window.location='enrutador.php?accion=verEnlaceRegalo&idRegalo=".$enlace['idRegalo']."'</script>";
     }
 
-    public static function borrarEnlace($idEnlace) {
+    public static function borrarEnlace($regalo) {
+        
+        $idEnlace = $regalo['idEnlace'];
+        $idRegalo = $regalo['idRegalo'];
 
-        //SIN 
         EnlaceBD::deleteEnlace($idEnlace);
-        echo "<script>window.location='enrutador.php?accion=mostrarRegalos'</script>";
+        echo "<script>window.location='enrutador.php?accion=verEnlaceRegalo&idRegalo=".$idRegalo."'</script>";
+       
        
     }
 

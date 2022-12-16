@@ -173,7 +173,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">AÑADIR ENLACE</h5>
                 </div>
                 <div class="modal-body">
-                    <form id='formAddEnlace'>
+                    <form id='formAddEnlace' enctype="multipart/form-data">
 
                     <div class='mb-3'>
                             <label for='nombre' class='form-label'>Nombre</label>
@@ -192,7 +192,7 @@
 
                         <div class='mb-3'>
                             <label for='imagen' class='form-label'>Imagen</label> <br>
-                            <input type='text' name='imagen' class='form-control' >
+                            <input type='file' name='imagen' class='form-control' >
                         </div>
 
                         <div class='mb-3'>

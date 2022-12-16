@@ -30,6 +30,39 @@ function autocarga($clase){
 } 
 spl_autoload_register("autocarga");
 
+        //Función para subir imágenes al servidor
+        function subirImagen() {
+
+            $directorioSubida = "img/";
+            $extensionesValidas = array("jpg", "png", "gif");
+            if(isset($_FILES['imagen'])){
+                $errores = array();
+                $nombreArchivo = $_FILES['imagen']['name'];
+                $directorioTemp = $_FILES['imagen']['tmp_name'];
+                $tipoArchivo = $_FILES['imagen']['type'];
+                $arrayArchivo = pathinfo($nombreArchivo);
+                $extension = $arrayArchivo['extension'];
+                // Comprobamos la extensión del archivo
+                if(!in_array($extension, $extensionesValidas)){
+                    $errores[] = "La extensión del archivo no es válida o no se ha subido ningún archivo";
+                }
+        
+                // Comprobamos y renombramos el nombre del archivo
+                $nombreArchivo = $arrayArchivo['filename'];
+                $nombreArchivo = preg_replace("/[^A-Z0-9._-]/i", "_", $nombreArchivo);
+                $nombreArchivo = $nombreArchivo . rand(1, 100);
+                // Desplazamos el archivo si no hay errores
+                if(empty($errores)){
+                    $nombreCompleto = $directorioSubida.$nombreArchivo.".".$extension;
+                    move_uploaded_file($directorioTemp, $nombreCompleto);
+                    //print "El archivo se ha subido correctamente";
+                }
+                return $nombreCompleto;
+            }
+          
+        }
+
+
 
   //Función para filtrar los campos del formulario
   function filtrado($datos){
@@ -69,7 +102,6 @@ if ($_REQUEST) {
                 //-------------------------------------------------------------------
 
 
-
                 //  BORRAR REGALO
                 if ($_REQUEST['accion'] == "eliminarRegalo") {
 
@@ -81,12 +113,11 @@ if ($_REQUEST) {
                 //  BORRAR ENLACE
                 if ($_REQUEST['accion'] == "eliminarEnlace") {
 
-                $idEnlace = filtrado($_REQUEST['idEnlace']);
-                ControladorEnlace::borrarEnlace($idEnlace);
+                $regalo['idEnlace'] = filtrado($_REQUEST['idEnlace']);
+                $regalo['idRegalo'] = filtrado($_REQUEST['idRegalo']);
+                ControladorEnlace::borrarEnlace($regalo);
 
                 }
-
-
 
 
                 //-------------------------------------------------------------------
@@ -110,7 +141,7 @@ if ($_REQUEST) {
                     $enlace["nombre"] = filtrado($_REQUEST['nombre']);
                     $enlace["enlace"] = filtrado($_REQUEST['enlace']);
                     $enlace["precio"] = filtrado($_REQUEST['precio']);
-                    $enlace["imagen"] = filtrado($_REQUEST['imagen']);
+                    $enlace["imagen"] = subirImagen();
                     $enlace["prioridad"] = filtrado($_REQUEST['prioridad']);
                     $enlace["idRegalo"] = filtrado($_REQUEST['idRegalo']);
 

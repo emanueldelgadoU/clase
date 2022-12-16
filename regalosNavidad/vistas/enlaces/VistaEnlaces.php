@@ -38,7 +38,7 @@
                       <p class="card-text"> Precio: '.$enlace->getPrecio().'</p>
                       <p class="card-text"> Prioridad: '.$enlace->getPrioridad().'</p>
                       <p class="card-text"> Enlace: '.$enlace->getEnlace().'</p>
-                      <a href="enrutador.php?accion=eliminarEnlace&idEnlace='. $enlace->getIdEnlace() . '" class="btn btn-danger">Borrar</a>
+                      <a href="enrutador.php?accion=eliminarEnlace&idEnlace='. $enlace->getIdEnlace() .'&idRegalo='.$_REQUEST['idRegalo'].'" class="btn btn-danger">Borrar</a>
                       </div>
                     </div>
                   </div>';
