@@ -146,6 +146,7 @@ class ControladorRegalo {
         //============================================================+
         // END OF FILE
         //============================================================+
+        echo "<script>window.location='enrutador.php?accion=mostrarRegalos'</script>";
         }
 
 
