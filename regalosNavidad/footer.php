@@ -157,7 +157,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-          
                     <button type='submit'  class='btn btn-primary' form="formBuscarDNI"
                         formaction="enrutador.php" formmethod="GET">Enviar</button>
                 </div>
@@ -173,7 +172,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">AÑADIR ENLACE</h5>
                 </div>
                 <div class="modal-body">
-                    <form id='formAddEnlace' enctype="multipart/form-data">
+                <form class='user' action='enrutador.php' method='POST' enctype="multipart/form-data">
 
                     <div class='mb-3'>
                             <label for='nombre' class='form-label'>Nombre</label>
@@ -205,15 +204,15 @@
                             </select>
                         </div>
                                 
-                        <input type="hidden" name="accion" value="insertarEnlace">
                         <input type="hidden" name="idRegalo" value="<?php echo $_GET['idRegalo']?>">
-
+                        <input type="hidden" name="accion" value="insertarEnlace">
+                        
+                        <button type='submit' class='btn btn-primary'>
+                            Enviar
+                        </button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type='submit'  class='btn btn-primary' form="formAddEnlace"
-                    formaction="enrutador.php" formmethod="GET">Enviar</button>
-                </div>
+         
             </div>
         </div>
     </div>

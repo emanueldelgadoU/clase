@@ -98,7 +98,7 @@
             <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#insertar">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Añadir Libros</span></a>
+                    <span>Añadir Regalo</span></a>
             </li>
 
             <li class="nav-item">
@@ -110,14 +110,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Usuarios</span></a>
+                    <span>Login</span></a>
             </li> 
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Prestamos</span></a>
-            </li>
+            </li> -->
 
 
             <!-- Divider -->
@@ -142,11 +142,42 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-500 small">
+                                <?php echo unserialize($_SESSION['usuario'])->getEmail()?>
+                                </span>
+                                <img class="img-profile rounded-circle"
+                                    src="p/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="enrutador.php?accion=destroy">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Cerrar Sesion
+                                </a>
+                            </div>
+                        </li>
                     </ul>
+
+            
+
+                    
                 </nav>
                 <!-- End of Topbar -->
 
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+
+                <ul class="navbar-nav ml-auto">
+
+<!-- Nav Item - Alerts -->
+<li class="nav-item dropdown no-arrow mx-1">
+</li>
+
+<div class="topbar-divider d-none d-sm-block"></div>
+
+

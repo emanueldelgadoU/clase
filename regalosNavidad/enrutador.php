@@ -46,10 +46,10 @@ spl_autoload_register("autocarga");
                 if(!in_array($extension, $extensionesValidas)){
                     $errores[] = "La extensión del archivo no es válida o no se ha subido ningún archivo";
                 }
-        
+    
                 // Comprobamos y renombramos el nombre del archivo
                 $nombreArchivo = $arrayArchivo['filename'];
-                $nombreArchivo = preg_replace("/[^A-Z0-9._-]/i", "_", $nombreArchivo);
+                $nombreArchivo = preg_replace("/[^A-Z0-9.-]/i", "_", $nombreArchivo);
                 $nombreArchivo = $nombreArchivo . rand(1, 100);
                 // Desplazamos el archivo si no hay errores
                 if(empty($errores)){
@@ -59,7 +59,6 @@ spl_autoload_register("autocarga");
                 }
                 return $nombreCompleto;
             }
-          
         }
 
 
@@ -196,8 +195,13 @@ if ($_REQUEST) {
                 if ($_REQUEST['accion'] == "pdf") {
                 $idSesionUsuario = unserialize($_SESSION['usuario'])->getIdUsuario();
                 ControladorRegalo::enviarPDF($idSesionUsuario);
-
                 }
+
+                if ($_REQUEST['accion'] == "destroy") {
+                    session_destroy();
+                    echo "<script>window.location='enrutador.php?accion=inicio'</script>";
+                }
+    
 
 
 
