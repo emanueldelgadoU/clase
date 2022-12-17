@@ -65,6 +65,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
+         <!-- Page Wrapper -->
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
