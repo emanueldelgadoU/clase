@@ -15,7 +15,7 @@ class ControladorEnlace {
 
         
         EnlaceBD::addEnlace($enlace);
-    
+        echo "<script>window.location='enrutador.php?accion=verEnlaceRegalo&idRegalo=".$enlace['idRegalo']."'</script>";
     }
 
     public static function borrarEnlace($regalo) {
