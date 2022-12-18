@@ -114,11 +114,11 @@
                     <span>Login</span></a>
             </li> 
 
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="index.php">
+            <li class="nav-item">
+                <a class="nav-link" href="enrutador.php?accion=mostrarRegalos">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Prestamos</span></a>
-            </li> -->
+                    <span>Regalos</span></a>
+            </li>
 
 
             <!-- Divider -->

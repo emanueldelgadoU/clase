@@ -12,20 +12,10 @@
                 <span>AÑADIR ENLACE</span></a>';
 
           //BOTON ORDENAR
-          echo '<form class="user" action="enrutador.php" method="post">';
-          
-          echo '<select class="form-select" name="mayorOmenor" id="mayorOmenor">
-                  <option selected> ORDENAR POR PRECIO </option>
-                  <option value="mayor">MAYOR</option>
-                  <option value="menor">MENOR</option>
-                </select>';
-                  
-          echo '<input type="hidden" name="idRegalo" value="'.$_REQUEST['idRegalo'].'">';
-          echo '<input type="hidden" name="accion" value="ordenarPorPrecio">';
-          echo '<button class="btn btn-warning mt-2 mb-2" type="submit">BUSCAR</button>';
-          echo '</form>';
-          echo '</div>';
-
+       
+          echo '<a href="enrutador.php?accion=menor&idRegalo='.$_REQUEST['idRegalo'].'" class=" ml-2 btn btn-dark">Ordenar Menor Precio</a>';
+          echo '<a href="enrutador.php?accion=mayor&idRegalo='.$_REQUEST['idRegalo'].'" class="ml-2 btn btn-dark">Ordenar Mayor Precio</a>';
+     
           echo   '<div class="row">';
           foreach ($enlaces as $enlace) {
               echo'  
@@ -37,7 +27,7 @@
                       <h5 class="card-title">'.$enlace->getNombre().'</h5>
                       <p class="card-text"> Precio: '.$enlace->getPrecio().'</p>
                       <p class="card-text"> Prioridad: '.$enlace->getPrioridad().'</p>
-                      <p class="card-text"> Enlace: '.$enlace->getEnlace().'</p>
+                      <p class="card-text"><a href="'.$enlace->getEnlace().'" class="card-link">Enlace</a></p>
                       <a href="enrutador.php?accion=eliminarEnlace&idEnlace='. $enlace->getIdEnlace() .'&idRegalo='.$_REQUEST['idRegalo'].'" class="btn btn-danger">Borrar</a>
                       </div>
                     </div>

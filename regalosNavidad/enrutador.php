@@ -181,15 +181,35 @@ if ($_REQUEST) {
 
                 }
 
+
+
+
+
+
                 //ORDENAR ENLACE POR PRECIO
-                if ($_REQUEST['accion'] == "ordenarPorPrecio") {
+                if ($_REQUEST['accion'] == "menor") {
 
                 $idRegalo = filtrado($_REQUEST['idRegalo']);
-                $mayorOmenor = filtrado($_REQUEST['mayorOmenor']);
-
-                ControladorEnlace::ordenarEnalce($idRegalo,$mayorOmenor);
-
+                ControladorEnlace::ordenarEnalceASC($idRegalo);
                 }
+
+                //ORDENAR ENLACE POR PRECIO
+                if ($_REQUEST['accion'] == "mayor") {
+
+                $idRegalo = filtrado($_REQUEST['idRegalo']);
+                ControladorEnlace::ordenarEnalceDESC($idRegalo);
+                }
+
+
+
+
+
+
+
+
+
+
+
 
                 //PDF
                 if ($_REQUEST['accion'] == "pdf") {

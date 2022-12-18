@@ -15,7 +15,7 @@ class ControladorEnlace {
 
         
         EnlaceBD::addEnlace($enlace);
-        echo "<script>window.location='enrutador.php?accion=verEnlaceRegalo&idRegalo=".$enlace['idRegalo']."'</script>";
+    
     }
 
     public static function borrarEnlace($regalo) {
@@ -29,21 +29,18 @@ class ControladorEnlace {
        
     }
 
-    public static function ordenarEnalce($idRegalo, $mayorOmenor) {
+    public static function ordenarEnalceASC($idRegalo) {
 
-        if($mayorOmenor=="mayor"){
-            $enlacesOrdnenados=EnlaceBD::ordenarEnlacePrecioASC($idRegalo);
-            VistaEnlaces::render($enlacesOrdnenados);
-        }else{
-            $enlacesOrdnenados=EnlaceBD::ordenarEnlacePrecioDESC($idRegalo);
-            VistaEnlaces::render($enlacesOrdnenados);
-
-        }
-
-      
-      
+        $enlacesOrdnenados=EnlaceBD::ordenarEnlacePrecioASC($idRegalo);
+        VistaEnlaces::render($enlacesOrdnenados);
+        
     }
 
+    public static function ordenarEnalceDESC($idRegalo) {
+
+        $enlacesOrdnenados=EnlaceBD::ordenarEnlacePrecioDESC($idRegalo);
+        VistaEnlaces::render($enlacesOrdnenados);
+    }
     
 
 
