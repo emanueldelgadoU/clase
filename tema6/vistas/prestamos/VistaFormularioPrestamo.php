@@ -2,7 +2,7 @@
 
     class VistaFormularioPrestamo {
 
-        public static function render($prestamos,$libros,$usuarios){
+        public static function render($libros,$usuarios){
           
           include("./p/header.php");
           ?>

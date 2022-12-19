@@ -15,8 +15,7 @@ class ControladorPrestamos {
     public static function formularioPrestamo() {
         $libros = LibroBD::getLibros();
         $usuarios = UsuariosBD::getUsuarios();
-        $prestamos = PrestamosBD::getPrestamos();
-        VistaFormularioPrestamo::render($prestamos,$libros,$usuarios);
+        VistaFormularioPrestamo::render($libros,$usuarios);
     }
     
     public static function crearPrestamo($prestamo) {
