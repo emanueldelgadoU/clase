@@ -11,8 +11,9 @@
         private $anio;
         
    
-        public function __construct($idUsuario="", $nombre="", $destinatario="",$precio="", $estado="",$anio="") {
-        
+        public function __construct($idRegalo="", $idUsuario="", $nombre="", $destinatario="",$precio="", $estado="",$anio="") {
+                
+            $this->idRegalo = $idRegalo;    
             $this->idUsuario = $idUsuario;
             $this->nombre = $nombre;
             $this->destinatario = $destinatario;

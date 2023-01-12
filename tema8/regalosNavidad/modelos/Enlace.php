@@ -11,8 +11,9 @@
         private $prioridad;
     
 
-        public function __construct($idRegalo="", $nombre="", $enlace="", $precio="", $imagen="", $prioridad="") {
+        public function __construct($idEnlace="", $idRegalo="", $nombre="", $enlace="", $precio="", $imagen="", $prioridad="") {
         
+            $this->idEnlace = $idEnlace;   
             $this->idRegalo = $idRegalo;
             $this->nombre = $nombre;
             $this->enlace = $enlace;

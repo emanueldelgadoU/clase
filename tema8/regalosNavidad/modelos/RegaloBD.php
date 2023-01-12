@@ -6,18 +6,20 @@
         public static function getRegalos($idUsuarioSesion) {
 
             $conexion = ConexionBD::conectar();
+            
+            $coleccion = $conexion->regalos;
 
-            //Consulta BBDD
-            $stmt = $conexion->prepare("SELECT * FROM regalos WHERE idUsuario=?");
-            $stmt->bindValue(1, $idUsuarioSesion);
-            $stmt->execute();
+            $regalos = $coleccion->find(["idUsuario"=>$idUsuarioSesion]);
 
-            //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-            $regalos = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Regalo");
+            //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+            $arrRegalo = array();
+            foreach($regalos as $regalo) {
+               $regalo_OBJ = new Regalo($regalo['idRegalo'],$regalo['idUsuario'], $regalo['nombre'],$regalo['destinatario'],$regalo['precio'],$regalo['estado'],$regalo['anio']);
+               array_push($arrRegalo, $regalo_OBJ);
+            }
 
             ConexionBD::cerrar();
-
-            return $regalos;
+            return $arrRegalo;
         }
 
 
@@ -25,94 +27,76 @@
         public static function getRegalosPorAnio($anio) {
 
             $conexion = ConexionBD::conectar();
+            
+            $coleccion = $conexion->regalos;
 
-            //Consulta BBDD
-            $stmt = $conexion->prepare("SELECT * FROM regalos WHERE anio=? ");
-            $stmt->bindValue(1, $anio);
-            // $stmt->bindValue(1, $idSesion);
+            $regalos =  $coleccion->find(["idUsuario"=>$anio["idRegalo"],"anio"=>$anio["anio"]]);
 
-            $stmt->execute();
-
-            //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-            $regalos = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Regalo");
+            //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+            $arrRegalo = array();
+            foreach($regalos as $regalo) {
+               $regalo_OBJ = new Regalo($regalo['idRegalo'],$regalo['nombre'],$regalo['destinatario'],$regalo['precio'],$regalo['estado'],$regalo['anio']);
+               array_push($arrRegalo, $regalo_OBJ);
+            }
 
             ConexionBD::cerrar();
-
-            return $regalos;
+            return $arrRegalo;
         }
+
+
 
         //BORRAR REGALOS POR ID
         public static function deleteRegalo($idRegalo) {
 
             $conexion = ConexionBD::conectar();
 
-            //Consulta BBDD
-            $stmt = $conexion->prepare("DELETE FROM regalos WHERE idRegalo=?");
-            $stmt->bindValue(1, $idRegalo);
+            $deleteResult = $conexion->regalos->deleteOne(['idRegalo' => intVal($idRegalo)]); 
 
-            $stmt->execute();
             ConexionBD::cerrar();
         }
 
-
+   
         public static function addRegalo($regalo) {
             $conexion = ConexionBD::conectar();
-    
-            try {
-                //Insertar
-                $stmt = $conexion->prepare("INSERT INTO regalos (idUsuario, nombre, destinatario, precio, estado, anio) VALUES (?, ?, ?, ?, ?, ?)");
-                
-                // SIN PASAR OBJETO //
-                $stmt->bindValue(1, $regalo['idUsuario']);
-                $stmt->bindValue(2, $regalo['nombre']);
-                $stmt->bindValue(3, $regalo['destinatario']);
-                $stmt->bindValue(4, $regalo['precio']);
-                $stmt->bindValue(5, $regalo['estado']);
-                $stmt->bindValue(6, $regalo['anio']);
 
-                //si pasamos un objeto //
-                // $stmt->bindValue(1, $regalo->getIdUsuario());
-                // $stmt->bindValue(2, $regalo->getNombre());
-                // $stmt->bindValue(3, $regalo->getDestinatario());
-                // $stmt->bindValue(4, $regalo->getPrecio());
-                // $stmt->bindValue(5, $regalo->getEstado());
-                // $stmt->bindValue(6, $regalo->getYear());
-         
-       
-                // Ejecuta la consulta
-                $stmt->execute();
-            } catch (PDOException $e){
-                echo $e->getMessage();
-            }
-    
+            //Hacer el autoincrement
+            //Ordeno por id, y me quedo con el mayor
+            $regaloMayor = $conexion->regalos->findOne(
+                [],
+                [
+                    'sort' => ['idRegalo' => -1],
+                ]);
+            if (isset($regaloMayor))
+                $idValue = $regaloMayor['idRegalo'];
+            else
+                $idValue = 0;
+
+
+            //Collección 'usuarios'
+            $insertOneResult = $conexion->regalos->insertOne([
+                'idRegalo' => intVal($idValue + 1),
+                'idUsuario' => $regalo['idUsuario'],
+                'nombre' => $regalo['nombre'],
+                'destinatario' => $regalo['destinatario'],
+                'precio' => $regalo['precio'],
+                'estado' => $regalo['estado'],
+                'anio' => $regalo['anio']
+            ]);
+
             ConexionBD::cerrar();
         }
 
         public static function updateRegalo($regalo) {
             $conexion = ConexionBD::conectar();
 
-            try {
-                //MODIFICAR
-                $stmt = $conexion->prepare("UPDATE regalos SET nombre=?, destinatario=?, precio=?, estado=?, anio=? WHERE idRegalo=?");
-                
-                //BLIND
-                $stmt->bindValue(1, $regalo["nombre"]);
-                $stmt->bindValue(2, $regalo["destinatario"]);
-                $stmt->bindValue(3, $regalo["precio"]);
-                $stmt->bindValue(4, $regalo["estado"]);
-                $stmt->bindValue(5, $regalo["anio"]);
-                $stmt->bindValue(6, $regalo["idRegalo"]);
-
-                // Ejecuta la consulta
-                $stmt->execute();
-            } catch (PDOException $e){
-                echo $e->getMessage();
-            }
-
-            ConexionBD::cerrar();
+            $updateResult = $conexion->regalos->updateOne(
+                ["idRegalo"=>intVal($regalo["idRegalo"])],
+                ['$set'=>["nombre"=>$regalo["nombre"],
+                          "destinatario"=>$regalo["destinatario"],
+                          "precio"=>$regalo["precio"],
+                          "estado"=>$regalo["estado"],
+                          "anio"=>$regalo["anio"]]]);
         }
-
-
 
     }
 

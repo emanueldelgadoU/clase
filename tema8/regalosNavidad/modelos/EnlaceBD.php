@@ -7,102 +7,105 @@
         public static function getEnalcesPorID($idRegalo) {
 
             $conexion = ConexionBD::conectar();
+            
+            $coleccion = $conexion->enlaces;
 
-            //Consulta BBDD
-            $stmt = $conexion->prepare("SELECT * 
-            FROM enlaces
-            WHERE idRegalo = ?");
+            $enlaces = $coleccion->find(["idRegalo"=>$idRegalo]);
 
-            $stmt->bindValue(1, $idRegalo);
-            $stmt->execute();
-
-            //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-            $regalos = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Enlace");
+            //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+            $arrEnlace = array();
+            foreach($enlaces as $enlace) {
+               $enlace_OBJ = new Enlace($enlace['idEnlace'], $enlace['idRegalo'],$enlace['nombre'],$enlace['enlace'],$enlace['precio'],$enlace['imagen'],$enlace['prioridad']);
+               array_push($arrEnlace, $enlace_OBJ);
+            }
 
             ConexionBD::cerrar();
-
-            return $regalos;
+            return $arrEnlace;
         }
 
 
         public static function addEnlace($enlace) {
             $conexion = ConexionBD::conectar();
-    
-            try {
-                //Insertar
-                $stmt = $conexion->prepare("INSERT INTO enlaces (idRegalo, nombre, enlace, precio, imagen, prioridad) VALUES (?, ?, ?, ?, ?, ?)");
-                
-                // SIN PASAR OBJETO //
-                $stmt->bindValue(1, $enlace['idRegalo']);
-                $stmt->bindValue(2, $enlace['nombre']);
-                $stmt->bindValue(3, $enlace['enlace']);
-                $stmt->bindValue(4, $enlace['precio']);
-                $stmt->bindValue(5, $enlace['imagen']);
-                $stmt->bindValue(6, $enlace['prioridad']);
-                
-                // Ejecuta la consulta
-                $stmt->execute();
-            } catch (PDOException $e){
-                echo $e->getMessage();
-            }
-    
+
+            //Hacer el autoincrement
+            //Ordeno por id, y me quedo con el mayor
+            $enlaceMayor = $conexion->enlaces->findOne(
+                [],
+                [
+                    'sort' => ['idEnlace' => -1],
+                ]);
+            if (isset($enlaceMayor))
+                $idValue = $enlaceMayor['idEnlace'];
+            else
+                $idValue = 0;
+
+
+            $insertOneResult = $conexion->enlaces->insertOne([
+                'idEnlace' => intVal($idValue)+1,
+                'idRegalo' => $enlace['idRegalo'],
+                'nombre' => $enlace['nombre'],
+                'enlace' => $enlace['enlace'],
+                'precio' => $enlace['precio'],
+                'imagen' => $enlace['imagen'],
+                'prioridad' => $enlace['prioridad']
+            ]);
+
             ConexionBD::cerrar();
         }
 
-        //BORRAR REGALOS POR ID
+        //BORRAR ENLACE POR ID
         public static function deleteEnlace($idEnlace) {
 
             $conexion = ConexionBD::conectar();
 
-            //Consulta BBDD
-            $stmt = $conexion->prepare("DELETE FROM enlaces WHERE idEnlace=?");
-            $stmt->bindValue(1, $idEnlace);
+            $deleteResult = $conexion->enlaces->deleteOne(['idEnlace' => intVal($idEnlace)]); 
 
-            $stmt->execute();
             ConexionBD::cerrar();
         }
+
 
         //ORDENAR POR PRECIO ASC
         public static function ordenarEnlacePrecioASC($idRegalo) {
 
-       
             $conexion = ConexionBD::conectar();
+                    
+            $coleccion = $conexion->enlaces;
+        
+            $enlaces = $coleccion->find(["idRegalo"=>$idRegalo],["sort"=>["precio"=>-1]]);
+        
+            //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+            $arrEnlace = array();
+            foreach($enlaces as $enlace) {
+                    $enlace_OBJ = new Enlace($enlace['idEnlace'], $enlace['idRegalo'],$enlace['nombre'],$enlace['enlace'],$enlace['precio'],$enlace['imagen'],$enlace['prioridad']);
+                    array_push($arrEnlace, $enlace_OBJ);
+                }
+        
+                ConexionBD::cerrar();
+                 return $arrEnlace;
+        
+            }
 
-            //Consulta BBDD
-            $stmt = $conexion->prepare("SELECT * FROM enlaces WHERE idRegalo = ? ORDER BY precio ASC");
 
-            $stmt->bindValue(1, $idRegalo);
-            $stmt->execute();
+        //ORDENAR POR PRECIO ASC
+        public static function ordenarEnlacePrecioDESC($idRegalo) {
 
-            //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-            $regalos = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Enlace");
+            $conexion = ConexionBD::conectar();
+            
+            $coleccion = $conexion->enlaces;
+
+            $enlaces = $coleccion->find(["idRegalo"=>$idRegalo],["sort"=>["precio"=>1]]);
+
+            //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+            $arrEnlace = array();
+            foreach($enlaces as $enlace) {
+               $enlace_OBJ = new Enlace($enlace['idEnlace'], $enlace['idRegalo'],$enlace['nombre'],$enlace['enlace'],$enlace['precio'],$enlace['imagen'],$enlace['prioridad']);
+               array_push($arrEnlace, $enlace_OBJ);
+            }
 
             ConexionBD::cerrar();
+            return $arrEnlace;
 
-            return $regalos;
         }
-
-                //ORDENAR POR PRECIO ASC
-                public static function ordenarEnlacePrecioDESC($idRegalo) {
-
-       
-                    $conexion = ConexionBD::conectar();
-        
-                    //Consulta BBDD
-                    $stmt = $conexion->prepare("SELECT * FROM enlaces WHERE idRegalo = ? ORDER BY precio DESC");
-        
-                    $stmt->bindValue(1, $idRegalo);
-                    $stmt->execute();
-        
-                    //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-                    $regalos = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Enlace");
-        
-                    ConexionBD::cerrar();
-        
-                    return $regalos;
-                }
-
-        
 
     }
 ?>

@@ -25,10 +25,10 @@ class ControladorRegalo {
         //SIN OBJETO
         RegaloBD::addRegalo($regalo);
         echo "<script>window.location='enrutador.php?accion=mostrarRegalos'</script>";
-        
-       
     }
 
+
+    
     public static function modificarRegalo($regalo) {
 
         //SIN OBJETO

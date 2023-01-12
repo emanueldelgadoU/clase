@@ -198,12 +198,12 @@
         </div>
     </div>
 
-            <!-- MODAL AÑADIR ENLACE -->
-            <div class="modal fade" id="addEnlace" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- MODAL AÑADIR JUGADOR -->
+            <div class="modal fade" id="addJugador" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">AÑADIR ENLACE</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">AÑADIR JUGADOR</h5>
                 </div>
                 <div class="modal-body">
                 <form class='user' action='enrutador.php' method='POST' enctype="multipart/form-data">

@@ -2,21 +2,18 @@
 
     class UsuarioBD {
 
-        public static function chequearLogin($email, $password, &$usuario) {
+        public static function chequearLogin($email, $password, &$usuarioOBJ) {
             $conexion = ConexionBD::conectar();
-            
-            $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = ? AND password = ?");
-            $stmt->bindValue(1, $email);
-            $stmt->bindValue(2, $password);
-            $stmt->execute();
-
-            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Usuario');
-            $usuario = $stmt->fetch();
-
-            $filas = $stmt->rowCount();
-
+    
+            $coleccion = $conexion->usuarios;
+    
+            $usuario = $coleccion->findOne(["email"=>$email,"password"=>$password]);
+    
+            $usuarioOBJ= new Usuario($usuario["email"],$usuario["password"]);
+            $usuarioOBJ->setIdUsuario($usuario["idUsuario"]);
+          
             //Si no me devuelve ninguna fila el password es incorrecto
-            if ($filas == 0) {
+            if ($usuario == null) {
                 return 0;
             } else {
                 //Usuario existe y password correcto 
@@ -24,7 +21,6 @@
                 return 1;
             }
         }
-
     }
 
     ?>
