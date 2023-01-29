@@ -15,6 +15,7 @@
            $articuloChat = new Articulo(0,$titulo,$texto,$imagen,$fecha);
            ArticuloBD::addArticulo($articuloChat);
            echo "<script>window.location='enrutador.php?accion=mostrarTextArea';</script>";
+           
         }
 
 

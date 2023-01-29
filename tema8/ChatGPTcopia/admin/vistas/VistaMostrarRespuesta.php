@@ -15,7 +15,7 @@ class VistaMostrarRespuesta {
       $response = $client->request('POST', 'https://api.openai.com/v1/completions', [
         'body' => '{"model": "text-davinci-003", "prompt": "'.$textoArticulo.'", "temperature": 0, "max_tokens": 250, "n": 1}',
         'headers' => [
-          'Authorization' => 'Bearer ',
+          'Authorization' => 'Bearer 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',
           'accept' => 'application/json',
           'content-type' => 'application/json',
         ],
@@ -32,7 +32,7 @@ class VistaMostrarRespuesta {
       $response = $client->request('POST', 'https://api.openai.com/v1/images/generations', [
         'body' => '{"prompt": "'.$textoImagen.'", "size": "1024x1024", "n": 1}',
         'headers' => [
-          'Authorization' => 'Bearer ',
+          'Authorization' => 'Bearer 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',
           'accept' => 'application/json',
           'content-type' => 'application/json',
         ],
@@ -43,9 +43,10 @@ class VistaMostrarRespuesta {
       $respuestaJSON = json_decode($respuesta);
       
       $imagen = $respuestaJSON->data[0]->url;
-      $imagenParaLabaseCodificada = urlencode($respuestaJSON->data[0]->url);
+  
+      
       echo '
-          
+      
       <center>
       <div class="card mb-3 mt-5" style="max-width: 90%;">
         <div class="row g-0">
@@ -62,13 +63,14 @@ class VistaMostrarRespuesta {
       </div>
       </center>
 
-
+  
       <center>
       <div class="mx-center my-5">
       <a href="enrutador.php?accion=mostrarTextArea" class=  "text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Generar Otro</a>
-      <a href="enrutador.php?accion=guardar&titulo='.$texto.'&texto='.$respuestaChat.'&imagen='.$imagenParaLabaseCodificada.'" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Guardar</a>
+      <a href="enrutador.php?accion=guardar&titulo='.$texto.'&texto='.$respuestaChat.'&foto='.urldecode($imagen).'" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Guardar</a>
       </div>
       </center>';
+      
 
 
       include('./pie.php');

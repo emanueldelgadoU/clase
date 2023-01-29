@@ -66,8 +66,9 @@ if ($_REQUEST) {
                 if ($_REQUEST['accion'] == "guardar") {
                     $titulo = $_REQUEST['titulo'];
                     $texto = $_REQUEST['texto'];
-                    $imagen = $_REQUEST['imagen'];
+                    $imagen = $_REQUEST['foto'];
                     $fecha = date("d-m-Y");
+                    
                     ControladorChat::guardar($titulo,$texto,$imagen,$fecha);
                 }
 
